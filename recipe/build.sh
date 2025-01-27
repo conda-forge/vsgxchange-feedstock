@@ -10,7 +10,8 @@ cmake $SRC_DIR \
   -DCMAKE_BUILD_TYPE=Release \
   -DvsgXchange_assimp=ON \
   -DvsgXchange_freetype=ON \
-  -DvsgXchange_GDAL=ON
+  -DvsgXchange_GDAL=ON \
+  -DvsgXchange_openexr=ON
 
 cmake --build build --parallel
 

@@ -28,6 +28,8 @@ libcurl:
 - '8'
 libgdal_core:
 - '3.10'
+openexr:
+- '3.3'
 target_platform:
 - linux-ppc64le
 zip_keys:
