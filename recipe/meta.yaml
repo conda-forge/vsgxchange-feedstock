@@ -10,7 +10,7 @@ source:
     sha256: 8a9e2fe56e047dd462eb0597b53169b6ffc2852d5ce0b7b728d800bdb50d3955
 
 build:
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage('vsgxchange', max_pin='x.x') }}
 
@@ -19,24 +19,26 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - cmake
-    - ninja  # [not win]
+    - ninja  # [unix]
     - pkgconfig  # [linux]
   host:
     - assimp
     - freetype
+    - gdal  # [unix]
     - libcurl
     - libvulkan-headers
     - libvulkan-loader
     - vulkanscenegraph
   run:
+    - libgdal-core  # [unix]
     - libvulkan-loader
     - vulkanscenegraph
 
 test:
   commands:
-    - test -f $PREFIX/include/vsgXchange/all.h  # [not win]
-    - test -f $PREFIX/lib/libvsgXchange${SHLIB_EXT}  # [not win]
-    - test -f $PREFIX/lib/cmake/vsgXchange/vsgXchangeConfig.cmake  # [not win]
+    - test -f $PREFIX/include/vsgXchange/all.h  # [unix]
+    - test -f $PREFIX/lib/libvsgXchange${SHLIB_EXT}  # [unix]
+    - test -f $PREFIX/lib/cmake/vsgXchange/vsgXchangeConfig.cmake  # [unix]
     - if not exist %PREFIX%\\Library\\include\\vsgXchange\\all.h exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\vsgXchange.lib exit 1  # [win]
     - if not exist %PREFIX%\\Library\\bin\\vsgXchange.dll exit 1  # [win]
@@ -46,7 +48,7 @@ test:
     - {{ compiler("c") }}
     - {{ compiler("cxx") }}
     - cmake
-    - ninja  # [not win]
+    - ninja  # [unix]
     - pkgconfig  # [linux]
   files:
     - tests/
