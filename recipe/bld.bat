@@ -4,7 +4,8 @@ cmake %SRC_DIR% ^
   %CMAKE_ARGS% ^
   -B build ^
   -DBUILD_SHARED_LIBS=ON ^
-  -DvsgXchange_assimp=ON
+  -DvsgXchange_assimp=ON ^
+  -DvsgXchange_freetype=ON
 if errorlevel 1 exit 1
 
 cmake --build build --parallel --config Release

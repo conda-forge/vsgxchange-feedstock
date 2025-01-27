@@ -8,7 +8,9 @@ cmake $SRC_DIR \
   -B build \
   -DBUILD_SHARED_LIBS=ON \
   -DCMAKE_BUILD_TYPE=Release \
-  -DvsgXchange_assimp=ON
+  -DvsgXchange_assimp=ON \
+  -DvsgXchange_freetype=ON \
+  -DvsgXchange_GDAL=ON
 
 cmake --build build --parallel
 
