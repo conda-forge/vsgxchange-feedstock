@@ -14,5 +14,7 @@ freetype:
 - '2'
 libcurl:
 - '8'
+openexr:
+- '3.3'
 target_platform:
 - win-64
