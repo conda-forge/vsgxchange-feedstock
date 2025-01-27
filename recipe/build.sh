@@ -7,7 +7,8 @@ cmake $SRC_DIR \
   -G Ninja \
   -B build \
   -DBUILD_SHARED_LIBS=ON \
-  -DCMAKE_BUILD_TYPE=Release
+  -DCMAKE_BUILD_TYPE=Release \
+  -DvsgXchange_assimp=ON
 
 cmake --build build --parallel
 

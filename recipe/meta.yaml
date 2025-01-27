@@ -10,7 +10,7 @@ source:
     sha256: 8a9e2fe56e047dd462eb0597b53169b6ffc2852d5ce0b7b728d800bdb50d3955
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('vsgxchange', max_pin='x.x') }}
 
@@ -22,6 +22,7 @@ requirements:
     - ninja  # [not win]
     - pkgconfig  # [linux]
   host:
+    - assimp
     - freetype
     - libcurl
     - libvulkan-headers
