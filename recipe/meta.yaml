@@ -10,7 +10,7 @@ source:
     sha256: 8a9e2fe56e047dd462eb0597b53169b6ffc2852d5ce0b7b728d800bdb50d3955
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage('vsgxchange', max_pin='x.x') }}
 
@@ -29,6 +29,7 @@ requirements:
     - libvulkan-headers
     - libvulkan-loader
     - openexr
+    - osg2vsg
     - vulkanscenegraph
   run:
     - libgdal-core  # [unix]

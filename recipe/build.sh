@@ -11,7 +11,8 @@ cmake $SRC_DIR \
   -DvsgXchange_assimp=ON \
   -DvsgXchange_freetype=ON \
   -DvsgXchange_GDAL=ON \
-  -DvsgXchange_openexr=ON
+  -DvsgXchange_openexr=ON \
+  -DvsgXchange_OSG=ON
 
 cmake --build build --parallel
 
