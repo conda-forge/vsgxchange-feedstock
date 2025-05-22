@@ -10,7 +10,7 @@ source:
     sha256: d45c24fea75ba3393bf676aa3a7576b22f6afec574aa18da114ce6a48181cd13
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('vsgxchange', max_pin='x.x') }}
 
