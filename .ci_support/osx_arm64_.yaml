@@ -31,7 +31,7 @@ libgdal_core:
 macos_machine:
 - arm64-apple-darwin20.0.0
 openexr:
-- '3.3'
+- '3.4'
 target_platform:
 - osx-arm64
 zip_keys:
