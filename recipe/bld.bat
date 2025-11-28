@@ -6,8 +6,8 @@ cmake %SRC_DIR% ^
   -B build ^
   -DBUILD_SHARED_LIBS=ON ^
   -DCMAKE_BUILD_TYPE=Release ^
-  -DvsgXchange_assimp=ON ^
-  -DvsgXchange_freetype=ON ^
+  -DvsgXchange_assimp=OFF ^
+  -DvsgXchange_freetype=OFF ^
   -DvsgXchange_openexr=OFF ^
   -DvsgXchange_GDAL=OFF ^
   -DvsgXchange_OSG=OFF
