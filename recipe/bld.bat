@@ -8,9 +8,9 @@ cmake %SRC_DIR% ^
   -DCMAKE_BUILD_TYPE=Release ^
   -DvsgXchange_assimp=ON ^
   -DvsgXchange_freetype=ON ^
-  -DvsgXchange_openexr=ON ^
+  -DvsgXchange_openexr=OFF ^
   -DvsgXchange_GDAL=OFF ^
-  -DvsgXchange_OSG=ON
+  -DvsgXchange_OSG=OFF
 if errorlevel 1 exit 1
 
 cmake --build build --parallel
