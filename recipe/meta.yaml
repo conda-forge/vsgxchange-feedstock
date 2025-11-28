@@ -25,16 +25,16 @@ requirements:
     - assimp
     - freetype
     # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL
-    - gdal <3.12  # [unix]
+    - gdal  # [unix]
     - libcurl
     - libvulkan-headers
     - libvulkan-loader
     - openexr
     - osg2vsg
-    - vulkanscenegraph
+    - vulkanscenegraph >=1.1.12
   run:
     # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL
-    - libgdal-core <3.12  # [unix]
+    - libgdal-core  # [unix]
     - libvulkan-loader
     - vulkanscenegraph
 
