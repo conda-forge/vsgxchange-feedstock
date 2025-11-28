@@ -19,7 +19,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - cmake
-    - ninja  # [unix]
+    - ninja
     - pkgconfig  # [linux]
   host:
     - assimp
