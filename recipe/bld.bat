@@ -1,7 +1,6 @@
 @echo on
 
 cmake %SRC_DIR% ^
-  -G "Ninja" ^
   %CMAKE_ARGS% ^
   -B build ^
   -DBUILD_SHARED_LIBS=ON ^
