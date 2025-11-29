@@ -7,7 +7,7 @@ cmake %SRC_DIR% ^
   -DBUILD_SHARED_LIBS=ON ^
   -DvsgXchange_assimp=ON ^
   -DvsgXchange_freetype=ON ^
-  -DvsgXchange_GDAL=OFF ^
+  -DvsgXchange_GDAL=ON ^
   -DvsgXchange_openexr=ON ^
   -DvsgXchange_OSG=ON
 if errorlevel 1 exit 1
