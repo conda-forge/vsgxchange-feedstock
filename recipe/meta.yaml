@@ -1,5 +1,5 @@
 {% set name = "vsgXchange" %}
-{% set version = "1.1.7" %}
+{% set version = "1.1.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vsg-dev/vsgXchange/archive/v{{ version }}.tar.gz
-    sha256: 0b67996001b11d1f38c92cc9026cd01a4202ac945bac88b41b70407bafb16918
+    sha256: 056a8b172fdccea8d6e3ed0d3d5ba9204de8a61472ece050372d7af8dbbfb55b
 
 build:
   number: 0
@@ -19,22 +19,22 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - cmake
-    - ninja  # [unix]
+    - ninja
     - pkgconfig  # [linux]
   host:
     - assimp
     - freetype
     # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL
-    - gdal  # [unix]
+    - gdal <3.12  # [unix]
     - libcurl
     - libvulkan-headers
     - libvulkan-loader
     - openexr
     - osg2vsg
-    - vulkanscenegraph >=1.1.12
+    - vulkanscenegraph
   run:
     # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL
-    - libgdal-core  # [unix]
+    - libgdal-core <3.12  # [unix]
     - libvulkan-loader
     - vulkanscenegraph
 
@@ -52,7 +52,7 @@ test:
     - {{ compiler("c") }}
     - {{ compiler("cxx") }}
     - cmake
-    - ninja
+    - ninja  # [unix]
     - pkgconfig  # [linux]
   files:
     - tests/
