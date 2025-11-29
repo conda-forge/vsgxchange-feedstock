@@ -4,16 +4,14 @@ cmake %SRC_DIR% ^
   %CMAKE_ARGS% ^
   -B build ^
   -DBUILD_SHARED_LIBS=ON ^
-  -DCMAKE_BUILD_TYPE=Release ^
-  -DvsgXchange_assimp=OFF ^
-  -DvsgXchange_freetype=OFF ^
-  -DvsgXchange_openexr=OFF ^
-  -DvsgXchange_GDAL=OFF ^
-  -DvsgXchange_OSG=OFF
+  -DvsgXchange_assimp=ON ^
+  -DvsgXchange_freetype=ON ^
+  -DvsgXchange_openexr=ON ^
+  -DvsgXchange_OSG=ON
 if errorlevel 1 exit 1
 
-cmake --build build --parallel
+cmake --build build --parallel --config Release
 if errorlevel 1 exit 1
 
-cmake --install build
+cmake --install build --config Release
 if errorlevel 1 exit 1
