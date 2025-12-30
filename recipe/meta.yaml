@@ -1,5 +1,5 @@
 {% set name = "vsgXchange" %}
-{% set version = "1.1.8" %}
+{% set version = "1.1.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/vsg-dev/vsgXchange/archive/v{{ version }}.tar.gz
-    sha256: 056a8b172fdccea8d6e3ed0d3d5ba9204de8a61472ece050372d7af8dbbfb55b
+    sha256: 902c6a147daa3e59847c11e0c02a682461e00bc43ddd0a48ecd0ed0dfe701f41
 
 build:
   number: 0
