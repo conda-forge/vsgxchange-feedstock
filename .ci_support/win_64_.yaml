@@ -1,5 +1,5 @@
 assimp:
-- 6.0.3
+- '6'
 c_compiler:
 - vs2022
 c_stdlib:
@@ -13,11 +13,11 @@ cxx_compiler:
 freetype:
 - '2'
 gdal:
-- '3.12'
+- '3.13'
 libcurl:
 - '8'
 libgdal_core:
-- '3.12'
+- '3.13'
 openexr:
 - '3.4'
 target_platform:
