@@ -31,7 +31,7 @@ requirements:
     - libvulkan-loader
     - openexr
     - osg2vsg
-    - vulkanscenegraph
+    - vulkanscenegraph >=1.1.15
   run:
     # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL
     - libgdal-core
