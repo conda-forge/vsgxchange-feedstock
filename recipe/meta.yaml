@@ -1,5 +1,5 @@
 {% set name = "vsgXchange" %}
-{% set version = "1.1.11" %}
+{% set version = "1.1.12" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   - url: https://github.com/vsg-dev/vsgXchange/archive/v{{ version }}.tar.gz
-    sha256: fc9d50d8a6bac0069c97617dbf53949edc8e353f3dd0eb64781b201f5414aefd
+    sha256: f9a58de8705ebdc0168d709cdd084efc069ff0caa4940a4edfe66dd6ba5bb076
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('vsgxchange', max_pin='x.x') }}
 
@@ -31,7 +31,7 @@ requirements:
     - libvulkan-loader
     - openexr
     - osg2vsg
-    - vulkanscenegraph
+    - vulkanscenegraph >=1.1.15
   run:
     # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL
     - libgdal-core
