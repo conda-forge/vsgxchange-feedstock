@@ -10,7 +10,7 @@ source:
     sha256: f9a58de8705ebdc0168d709cdd084efc069ff0caa4940a4edfe66dd6ba5bb076
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('vsgxchange', max_pin='x.x') }}
 
@@ -30,12 +30,15 @@ requirements:
     - libvulkan-headers
     - libvulkan-loader
     - openexr
-    - osg2vsg
+    # build 0 was linked against the older VulkanSceneGraph ABI.
+    - osg2vsg >=0.3.0 *_1
     - vulkanscenegraph >=1.1.15
   run:
     # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL
     - libgdal-core
     - libvulkan-loader
+    # keep runtime resolution away from osg2vsg build 0's old VSG ABI.
+    - osg2vsg >=0.3.0 *_1
     - vulkanscenegraph
 
 test:
