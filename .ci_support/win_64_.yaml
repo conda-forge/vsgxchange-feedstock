@@ -1,7 +1,5 @@
 assimp:
 - '6'
-c_compiler:
-- vs2022
 c_stdlib:
 - vs
 channel_sources:
@@ -16,8 +14,6 @@ gdal:
 - '3.13'
 libcurl:
 - '8'
-libgdal_core:
-- '3.13'
 openexr:
 - '3.4'
 target_platform:
