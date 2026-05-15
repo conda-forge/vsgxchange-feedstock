@@ -1,0 +1,92 @@
+context:
+  name: vsgxchange
+  version: "1.1.12"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/vsg-dev/vsgXchange/archive/v${{ version }}.tar.gz
+  sha256: f9a58de8705ebdc0168d709cdd084efc069ff0caa4940a4edfe66dd6ba5bb076
+
+build:
+  number: 2
+  script:
+    - if: win
+      then: call "%RECIPE_DIR%\\build.bat"
+    - if: unix
+      then: bash "${RECIPE_DIR}/build.sh"
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - cmake
+    - ninja
+    - if: linux
+      then: pkgconfig
+  host:
+    - assimp
+    - freetype
+    # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL.
+    - gdal
+    - libcurl
+    - libvulkan-headers
+    - libvulkan-loader
+    - openexr
+    # build 0 was linked against the older VulkanSceneGraph ABI.
+    - osg2vsg >=0.3.0 *_1
+    - vulkanscenegraph >=1.1.15
+  run:
+    # GDAL 3.12+ has namespace GDAL that conflicts with vsgXchange class GDAL.
+    - libgdal-core
+    # Keep runtime resolution away from osg2vsg build 0's old VSG ABI.
+    - osg2vsg >=0.3.0 *_1
+  run_exports:
+    - ${{ pin_subpackage('vsgxchange', upper_bound='x.x') }}
+  ignore_run_exports:
+    from_package:
+      - libvulkan-loader
+
+tests:
+  - requirements:
+      run:
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - if: unix
+          then: ninja
+        - if: linux
+          then: pkgconfig
+    files:
+      recipe:
+        - run_test.bat
+        - run_test.sh
+        - tests/
+    script:
+      - if: unix
+        then:
+          - test -f "${PREFIX}/include/vsgXchange/all.h"
+          - test -f "${PREFIX}/lib/libvsgXchange${SHLIB_EXT}"
+          - test -f "${PREFIX}/lib/cmake/vsgXchange/vsgXchangeConfig.cmake"
+          - bash run_test.sh
+      - if: win
+        then:
+          - if not exist "%PREFIX%\\Library\\include\\vsgXchange\\all.h" exit 1
+          - if not exist "%PREFIX%\\Library\\lib\\vsgXchange.lib" exit 1
+          - if not exist "%PREFIX%\\Library\\bin\\vsgXchange.dll" exit 1
+          - if not exist "%PREFIX%\\Library\\bin\\vsgconv.exe" exit 1
+          - if not exist "%PREFIX%\\Library\\lib\\cmake\\vsgXchange\\vsgXchangeConfig.cmake" exit 1
+          - call run_test.bat
+
+about:
+  homepage: https://vsg-dev.github.io/vsg-dev.io/
+  repository: https://github.com/vsg-dev/vsgXchange
+  summary: Utility library for converting data+materials to/from VulkanSceneGraph
+  license: MIT
+  license_file: LICENSE.md
+
+extra:
+  recipe-maintainers:
+    - jeongseok-meta
