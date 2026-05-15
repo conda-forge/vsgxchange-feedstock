@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/vsg-dev/vsgXchange/archive/v${{ version }}.tar.gz
-  sha256: b3425e335d4155116e223380a91a93d069659e05aa824e5e1c5bccad3b46ebc6
+  sha256: e1a94460235a0dba9a0dd2f7f407c5397ffa618d0f744cc247259b581beb3ba4
 
 build:
   number: 1
