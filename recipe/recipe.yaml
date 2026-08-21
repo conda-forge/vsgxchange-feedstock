@@ -1,6 +1,6 @@
 context:
   name: vsgxchange
-  version: "1.1.13"
+  version: "1.1.14"
 
 package:
   name: ${{ name }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/vsg-dev/vsgXchange/archive/v${{ version }}.tar.gz
-  sha256: e1a94460235a0dba9a0dd2f7f407c5397ffa618d0f744cc247259b581beb3ba4
+  sha256: f29f2f6ec9bfb931b664212e0134124990906249c8f8a0ff4513aeb2e239e9cc
 
 build:
-  number: 1
+  number: 0
   script:
     - if: win
       then: call "%RECIPE_DIR%\\build.bat"
