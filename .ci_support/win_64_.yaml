@@ -15,6 +15,6 @@ gdal:
 libcurl:
 - '8'
 openexr:
-- '3.4'
+- '3.5'
 target_platform:
 - win-64
